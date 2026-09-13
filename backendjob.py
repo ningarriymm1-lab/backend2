@@ -219,10 +219,9 @@ HTML_TEMPLATE = '''
         </div>
     </div>
 
-    <!-- Modal เพิ่มไฟล์ -->
     <div class="modal" id="addModal">
         <div class="modal-content">
-            <h3>📦 เพิ่มไฟล์ / โฟลเดอร์</h3>
+            <h3>📦 เพิ่มไฟล์ / โฟลเดอร์จากมือถือ</h3>
             <form action="{{ url_for('add_item') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>ชื่อที่แสดง</label>
@@ -238,11 +237,11 @@ HTML_TEMPLATE = '''
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>เลือกไฟล์จากเครื่อง</label>
+                    <label>เลือกไฟล์จากเครื่องมือถือ (รองรับทุกไฟล์)</label>
                     <div class="file-drop-area" id="dropArea">
                         <input type="file" name="file" id="fileInput" accept="*/*" required onchange="handleFileSelect(this)">
                         <div class="file-msg" id="fileMsg">
-                            📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่
+                            📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป
                         </div>
                     </div>
                 </div>
@@ -292,7 +291,7 @@ HTML_TEMPLATE = '''
                     nameInput.value = cleanName;
                 }
             } else {
-                fileMsg.innerHTML = `📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่`;
+                fileMsg.innerHTML = `📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป`;
             }
         }
 
@@ -328,7 +327,7 @@ HTML_TEMPLATE = '''
         function openModal() { document.getElementById('addModal').classList.add('active'); }
         function closeModal() { 
             document.getElementById('addModal').classList.remove('active');
-            document.getElementById('fileMsg').innerHTML = `📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่`;
+            document.getElementById('fileMsg').innerHTML = `📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป`;
         }
     </script>
 </body>
