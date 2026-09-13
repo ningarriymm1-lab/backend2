@@ -105,7 +105,6 @@ HTML_TEMPLATE = '''
         .btn-primary:hover { background-color: var(--accent-hover); }
         .btn-primary:active { transform: scale(0.97); }
 
-        /* มือถือแสดง 2 คอลัมน์, จอใหญ่แสดงแบบ Grid */
         .grid-container { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
@@ -223,7 +222,7 @@ HTML_TEMPLATE = '''
     <!-- Modal เพิ่มไฟล์ -->
     <div class="modal" id="addModal">
         <div class="modal-content">
-            <h3>📦 เพิ่มไฟล์ / โฟลเดอร์จากมือถือ</h3>
+            <h3>📦 เพิ่มไฟล์ / โฟลเดอร์</h3>
             <form action="{{ url_for('add_item') }}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>ชื่อที่แสดง</label>
@@ -239,11 +238,11 @@ HTML_TEMPLATE = '''
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>เลือกไฟล์จากเครื่องมือถือ</label>
+                    <label>เลือกไฟล์จากเครื่อง</label>
                     <div class="file-drop-area" id="dropArea">
                         <input type="file" name="file" id="fileInput" accept="*/*" required onchange="handleFileSelect(this)">
                         <div class="file-msg" id="fileMsg">
-                            📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป
+                            📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่
                         </div>
                     </div>
                 </div>
@@ -293,7 +292,7 @@ HTML_TEMPLATE = '''
                     nameInput.value = cleanName;
                 }
             } else {
-                fileMsg.innerHTML = `📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป`;
+                fileMsg.innerHTML = `📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่`;
             }
         }
 
@@ -329,7 +328,7 @@ HTML_TEMPLATE = '''
         function openModal() { document.getElementById('addModal').classList.add('active'); }
         function closeModal() { 
             document.getElementById('addModal').classList.remove('active');
-            document.getElementById('fileMsg').innerHTML = `📱 แตะที่นี่เพื่อเลือกไฟล์หรือโฟลเดอร์ซิป`;
+            document.getElementById('fileMsg').innerHTML = `📦 แตะหรือเลือกไฟล์ / โฟลเดอร์ซิปที่นี่`;
         }
     </script>
 </body>
